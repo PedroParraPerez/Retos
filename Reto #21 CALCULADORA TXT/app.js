@@ -41,12 +41,19 @@ const file = `${readTextFile('./Callenge21.txt')}`
 
 const takingTheArray = (file) => {
     const arrFile = file.split('')
-    console.log(arrFile)
-    const aux = []
+    const operationsAndNumbers = []
     arrFile.forEach(element => {
-        if (element !== '\r' && element !== '\n') aux.push(element)
+        if (element !== '\r' && element !== '\n') operationsAndNumbers.push(element)
     });
-    return aux
+    console.log(operationsAndNumbers)
+    return operationsAndNumbers
 }
 takingTheArray(file)
+
+const operationNumbers = (numbersArray) => {
+    const result = numbersArray[0]
+    let operation
+    let nextNumber
+
+}
 
