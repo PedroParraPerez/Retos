@@ -26,14 +26,15 @@ const finalResults = (match) => {
     const option = Math.floor(Math.random() * prob)
     return match[option]
 }
-const whoWins = (P1,P2, player1, player2) => {
-    if(P1 === P2) return 'Empate'
-    if(P1 === 'R' && P2 ===  'S') return player1
-    if(P1 === 'R' && P2 ===  'P') return player2
-    if(P1 === 'S' && P2 ===  'P') return player1
+const whoWins = (P1, P2, player1, player2) => {
+    if (P1 === P2) return 'Empate'
+    if (P1 === 'R' && P2 === 'S') return player1
+    if (P1 === 'R' && P2 === 'P') return player2
+    if (P1 === 'S' && P2 === 'P') return player1
     return 'Nulo'
 
 }
+
 const match = (options) => {
     const match = []
     for (let firstPlayer of options) {
@@ -42,13 +43,25 @@ const match = (options) => {
         }
     }
     const results = finalResults(match)
-    console.log(results)
 
     const firstWhoWins = whoWins(results.player1, results.player2, 'Player 1', 'Player2')
-    if(firstWhoWins !== 'Nulo') return firstWhoWins
-    const reverseWhoWins = whoWins(results.player2, results.player1, 'Player 2', 'Player 2')
-    if(reverseWhoWins !== 'Nulo') return reverseWhoWins
-    return 'Nulo'
+    if (firstWhoWins !== 'Nulo') return firstWhoWins
+    return whoWins(results.player2, results.player1, 'Player 2', 'Player 2')
+}
+
+const whoIsTheFinalWinner = (options) => {
+    const matches = {
+        P1: 0,
+        P2: 0
+    }
+    for (let i = 0; i <= 2; i++) {
+       if(match(options) == 'Player 1') matches.P1 += 1
+       if(match(options) == 'Player 2') matches.P2 += 1
+    }
+    console.log({matches})
+    if(matches.P1 === matches.P2) return 'Empate'
+    if(matches.P1 > matches.P2) return ' Ha ganado Player 1'
+    return 'Ha ganado Player 2'
 
 }
-console.log(match(options))
+console.log(whoIsTheFinalWinner(options))
