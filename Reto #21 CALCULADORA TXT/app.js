@@ -22,6 +22,13 @@
  */
 //  TODO: dont finish yet
 
+const SYMBOLS = {
+    SUM: '+',
+    SUBSTRACT: '-',
+    MULTIPLICATION: '*',
+    SPLIT: '/',
+}
+
 const readTextFile = (file) => {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -45,15 +52,12 @@ const takingTheArray = (file) => {
     arrFile.forEach(element => {
         if (element !== '\r' && element !== '\n') operationsAndNumbers.push(element)
     });
-    console.log(operationsAndNumbers)
     return operationsAndNumbers
 }
-takingTheArray(file)
+const paramsForOperation = takingTheArray(file)
 
-const operationNumbers = (numbersArray) => {
-    const result = numbersArray[0]
-    let operation
-    let nextNumber
+const operationNumbers = (params) => {
+    const result = params.reducer((accumulator, currentValue) => { }, 0)
 
 }
 

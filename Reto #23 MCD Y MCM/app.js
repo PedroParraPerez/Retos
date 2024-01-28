@@ -19,12 +19,9 @@
 // TODO 
 const DATA = [12, 20, 60, 120]
 const MCD = (data) => {
-    const dataSorted = data.sort((a,b)=>a-b)
+    const dataSorted = data.sort((a, b) => a - b)
     const dataLength = dataSorted.length
-    // for(let i = 0; i < dataSorted[dataLength -1]; i ++){
-        
-    // }
-   
+
 }
 
 console.log(MCD(DATA))

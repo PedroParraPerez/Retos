@@ -21,7 +21,7 @@
 const balanced = '{ [ a * ( c + d ) ] - 5 }' // TODO: Terminar, no esta bien
 const noBalanced = '{ a * ( c + d ) ] - 5 }'
 
-const expresioes = {
+const expresiones = {
     parentesis1: '(',
     parentesis2: ')',
     llaves1: '{',
@@ -32,11 +32,11 @@ const expresioes = {
 
 const balancedExpresio = (expresion) => {
     const arr = expresion.replace(/ /g, '').split('')
-    const arrfilter = arr.filter((value) => value === expresioes.parentesis1 || value === expresioes.parentesis2 || value === expresioes.llaves1 || value === expresioes.llaves2 || value === expresioes.corchetes1 || value === expresioes.corchetes2)
-    const reverArrFilter = arrfilter.reverse()
-    console.log(arrfilter)
-    console.log(reverArrFilter)
-    if (arrfilter === reverArrFilter) return true
+    const arrfilter = arr.filter((value) => value === expresiones.parentesis1 || value === expresiones.parentesis2 || value === expresiones.llaves1 || value === expresiones.llaves2 || value === expresiones.corchetes1 || value === expresiones.corchetes2)
+    const arrLength = arrfilter.length
+    const reverArrLength = reverArrFilter.length
+    const checkValuesArrays = arrfilter.every((v, i) => v === reverArrFilter[i])
+    if (reverArrLength == arrLength && checkValuesArrays) return true
     return false
 }
 
